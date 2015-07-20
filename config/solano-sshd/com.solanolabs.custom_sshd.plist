@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.solanolabs.custom_sshd</string>
+	<key>Program</key>
+	<string>__REPO_ROOT__/.solano-ssh/sshd.sh</string>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<true/>
+	<key>StandardOutPath</key>
+	<string>__REPO_ROOT__/.solano-ssh/com.solanolabs.custom_sshd.log</string>
+	<key>StandardErrorPath</key>
+	<string>__REPO_ROOT__/.solano-ssh/com.solanolabs.custom_sshd_err.log</string>
+</dict>
+</plist> 
