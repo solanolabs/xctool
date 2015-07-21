@@ -34,8 +34,6 @@ echo "export TDDIUM_PR_BRANCH=$TDDIUM_PR_BRANCH" >> osx-env-set.sh
 echo "export TDDIUM_PR_COMMIT=$TDDIUM_PR_COMMIT" >> osx-env-set.sh
 echo "export TDDIUM_LAST_BRANCH_PASSED_SESSION_ID=$TDDIUM_LAST_BRANCH_PASSED_SESSION_ID" >> osx-env-set.sh
 
-# Any other necessary ENV vars to set
-
 # Secondary SSH port if iOS simulator tests are needed
 if [ -n "$SOLANO_SSH_PORT" ]; then
   echo "export SOLANO_SSH_PORT=\"$SOLANO_SSH_PORT\"" >> osx-env-set.sh
@@ -59,5 +57,3 @@ echo "export OSX_REMOTE_HOME=$OSX_REMOTE_HOME" >> solano-env.set.sh
 echo "export OSX_REMOTE_DIR=$OSX_REMOTE_DIR" >> solano-env-set.sh
 chmod +x solano-env-set.sh
 
-# Trigger an osx worker pre_setup if necessary
-#ssh -A $OSX_HOST -p $OSX_SSH_PORT"source /etc/profile && cd $OSX_REMOTE_DIR && source osx-env-set.sh && ./config/osx_pre_setup.sh 2>&1 > osx_pre_setup.log"
