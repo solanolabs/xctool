@@ -13,3 +13,4 @@ build
 .buckd
 buck-out
 buck-cache
+.solano*

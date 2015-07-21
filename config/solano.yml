@@ -1,0 +1,24 @@
+# Solano CI Configuration for example xctool repo
+
+resource_pools:
+  - example_osx_resource_pool # Solano CI support setup resource pool that provides $OSX_HOST
+
+environment:
+  'OSX_SSH_PORT': '22'
+  'SOLANO_SSH_PORT': '2222'
+
+hooks:
+  pre_setup: ./scripts/buck-install.sh && ./scripts/prepare-workers.sh # prepare-workers.sh sets the environment and transfers files to osx worker
+  # Setup tasks that need to run on OS X can be invoked like: ./scripts/osx_command.sh <script-on-osx>
+  post_build: ./config/post_build.sh # The post_build hook can be used to sign apps and deploy
+
+tests:
+  - ./scripts/osx_test.sh ./scripts/solano-ci.sh # scripts/osx_test.sh runs the following command on the osx worker
+  # iOS simulator tests require secondary ssh connection. See config/solano-sshd/README.txt.
+  #- ./scripts/osx_simulator_test.sh ./scripts/example-simulator-test.sh
+
+cache: # Cache dependencies for faster build times
+  key_paths:
+    - config/buck-install.sh
+  save_paths:
+    - REPO/Vendor/buck
