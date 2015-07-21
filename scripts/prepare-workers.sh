@@ -41,8 +41,8 @@ fi
 
 chmod +x osx-env-set.sh
 
-# Setup solano-ssh for simulator usage (see README in config/solano-sshd)
-./config/solano-sshd/setup.sh $OSX_REMOTE_DIR
+# Setup solano-ssh for simulator usage (see README in scripts/solano-sshd)
+./scripts/solano-sshd/setup.sh $OSX_REMOTE_DIR
 
 # Collect relevant ~/.ssh/known_hosts entries
 grep -v ^"localhost" $HOME/.ssh/known_hosts | grep -v ^"127.0.0.1" > .solano-known_hosts
